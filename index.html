@@ -1,2 +1,43 @@
-"<!DOCTYPE html><html><head><title>Mi P�gina Web</title></head><body><h1>My Page</h1></body></html>" 
-"<p>�P�gina actualizada!</p>" 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Estudiantes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Formulario de Estudiantes</h1>
+    <form id="formularioEstudiante">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required><br>
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" required><br>
+        <label for="matricula">Matrícula:</label>
+        <input type="text" id="matricula" required><br>
+        <label for="calificacion">Calificación:</label>
+        <input type="number" id="calificacion" required><br>
+        <button type="button" onclick="agregarEstudiante()">Agregar</button>
+    </form>
+
+    <h2>Lista de Estudiantes</h2>
+    <input type="text" id="buscar" placeholder="Buscar en la tabla..." onkeyup="buscarEnTabla()"><br><br>
+    <table id="tablaEstudiantes">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Matrícula</th>
+                <th>Calificación</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
