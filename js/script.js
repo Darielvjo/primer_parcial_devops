@@ -1,13 +1,13 @@
-
 let indiceEdicion = -1;
 
 function agregarEstudiante() {
-   
-    const nombre = document.getElementById('nombre').value;
-    const apellido = document.getElementById('apellido').value;
-    const matricula = document.getElementById('matricula').value;
-    const calificacion = document.getElementById('calificacion').value;
 
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;   
+
+    const matricula = document.getElementById('matricula').value;
+    const   
+ calificacion = document.getElementById('calificacion').value;
 
     if (nombre === '' || apellido === '' || matricula === '' || calificacion === '') {
         alert('Todos los campos son obligatorios');
@@ -16,18 +16,17 @@ function agregarEstudiante() {
 
     const tabla = document.getElementById('tablaEstudiantes').getElementsByTagName('tbody')[0];
 
-   
     if (indiceEdicion === -1) {
         const nuevaFila = tabla.insertRow();
-        nuevaFila.classList.add('nueva-fila');  
+        nuevaFila.classList.add('nueva-fila');
         nuevaFila.insertCell(0).innerText = nombre;
         nuevaFila.insertCell(1).innerText = apellido;
         nuevaFila.insertCell(2).innerText = matricula;
         nuevaFila.insertCell(3).innerText = calificacion;
         const celdaAcciones = nuevaFila.insertCell(4);
-        
+
         celdaAcciones.innerHTML = '<button class="boton-accion editar">Editar</button><button class="boton-accion eliminar">Eliminar</button>';
-        
+
         agregarEventosAccion(nuevaFila, nuevaFila.rowIndex - 1);
     } else {
         const fila = tabla.rows[indiceEdicion];
@@ -42,8 +41,7 @@ function agregarEstudiante() {
 }
 
 function agregarEventosAccion(fila, indice) {
-    fila.querySelector('.editar').addEventListener('click', function() 
-    {
+    fila.querySelector('.editar').addEventListener('click', function() {
         indiceEdicion = indice;
         const tabla = document.getElementById('tablaEstudiantes').getElementsByTagName('tbody')[0];
         const fila = tabla.rows[indice];
@@ -53,8 +51,7 @@ function agregarEventosAccion(fila, indice) {
         document.getElementById('calificacion').value = fila.cells[3].innerText;
     });
 
-    fila.querySelector('.eliminar').addEventListener('click', function() 
-    {
+    fila.querySelector('.eliminar').addEventListener('click', function() {
         const tabla = document.getElementById('tablaEstudiantes').getElementsByTagName('tbody')[0];
         tabla.deleteRow(indice);
         actualizarBotonesAccion();
